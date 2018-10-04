@@ -37,6 +37,7 @@ class _ProductManagerState extends State<ProductManager> {
     setState(() {
       _products.add(product);
     });
+    print(_products);
   }
 
   @override
@@ -48,7 +49,7 @@ class _ProductManagerState extends State<ProductManager> {
           margin: EdgeInsets.all(10.0),
           child: ProductControl(_addProduct),
         ),
-        Products(_products)
+        Expanded(child: Products(_products))
       ],
     );
   }
