@@ -17,9 +17,7 @@ class Products extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    print('[Products Widget] build()');
+  Widget _buildProductList () {
     Widget productCard;
     if (products.length > 0) {
       productCard = ListView.builder(
@@ -27,11 +25,16 @@ class Products extends StatelessWidget {
         itemCount: products.length,
       );
     } else {
-      productCard = Center(
-        child: Text('No products found ,please add some'),
-      );
+      productCard = Container();
     }
     return productCard;
+
   }
-  
+
+  @override
+  Widget build(BuildContext context) {
+    print('[Products Widget] build()');
+    return _buildProductList();
+  }
+
 }
