@@ -5,7 +5,7 @@ class Products extends StatelessWidget {
   final List<Map<String, String>> products;
   final Function deleteProduct;
 
-  Products(this.products , {this.deleteProduct}) {
+  Products(this.products, {this.deleteProduct}) {
     print('[Products Widget] Constructor');
   }
   Widget _buildProductItem(BuildContext context, int index) {
@@ -18,19 +18,16 @@ class Products extends StatelessWidget {
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
+                color: Color.fromRGBO(0, 0, 0, 0.3),
                 child: Text('Detail'),
-                onPressed: () => Navigator.push<bool>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => ProductPage(
-                            products[index]['title'], products[index]['image']),
-                      ),
-                    ).then((bool value) {
-                      if (value){
+                onPressed: () =>
+                    Navigator
+                    .pushNamed<bool>(context, '/product/' + index.toString())
+                    .then((bool value) {
+                      if (value) {
                         deleteProduct(index);
                       }
                       print(value);
-
                     }),
               )
             ],
