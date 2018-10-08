@@ -16,31 +16,25 @@ class Products extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Flexible(
-                    flex: 1,
-                    child: Text(
-                      products[index]['title'],
-                      style: TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Oswald'),
-                    ),
+                  Text(
+                    products[index]['title'],
+                    style: TextStyle(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Oswald'),
                   ),
                   SizedBox(
                     width: 8.0,
                   ),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).accentColor,
-                          borderRadius: BorderRadius.circular(5.0)),
-                      child: Text(
-                        '\$${products[index]['price'].toString()}',
-                        style: TextStyle(color: Colors.white),
-                      ),
+                  Container(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).accentColor,
+                        borderRadius: BorderRadius.circular(5.0)),
+                    child: Text(
+                      '\$${products[index]['price'].toString()}',
+                      style: TextStyle(color: Colors.white),
                     ),
                   )
                 ],
