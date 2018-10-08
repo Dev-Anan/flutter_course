@@ -12,17 +12,51 @@ class Products extends StatelessWidget {
         children: <Widget>[
           Image.asset(products[index]['image']),
           Container(
-            padding: EdgeInsets.only(top: 10.0),
-            child: Text(
-              products[index]['title'],
-              style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold, fontFamily: 'Oswald'),
-            ),
+              padding: EdgeInsets.only(top: 10.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Flexible(
+                    flex: 1,
+                    child: Text(
+                      products[index]['title'],
+                      style: TextStyle(
+                          fontSize: 25.0,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Oswald'),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8.0,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).accentColor,
+                          borderRadius: BorderRadius.circular(5.0)),
+                      child: Text(
+                        '\$${products[index]['price'].toString()}',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  )
+                ],
+              )),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.5),
+            decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey, width: 1.0),
+                borderRadius: BorderRadius.circular(4.0)),
+            child: Text(' Siam Paragon, Bangkok'),
           ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
-                child: Text('Detail'),
+                child: Text('Details'),
                 onPressed: () => Navigator.pushNamed<bool>(
                     context, '/product/' + index.toString()),
               )
