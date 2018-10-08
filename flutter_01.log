@@ -1,0 +1,105 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter packages get
+
+## exception
+
+YamlException: Error on line 60, column 3: Expected ':'.
+  #       - asset: fonts/Schyler-Italic.ttf
+  ^
+
+```
+#0      Scanner._staleSimpleKeys (package:yaml/src/scanner.dart:491:9)
+#1      Scanner._fetchMoreTokens (package:yaml/src/scanner.dart:325:9)
+#2      Scanner.peek (package:yaml/src/scanner.dart:317:27)
+#3      Parser._parseBlockMappingKey (package:yaml/src/parser.dart:418:26)
+#4      Parser._stateMachine (package:yaml/src/parser.dart:86:16)
+#5      Parser.parse (package:yaml/src/parser.dart:47:19)
+#6      Loader._loadMapping (package:yaml/src/loader.dart:171:23)
+#7      Loader._loadNode (package:yaml/src/loader.dart:86:16)
+#8      Loader._loadSequence (package:yaml/src/loader.dart:141:20)
+#9      Loader._loadNode (package:yaml/src/loader.dart:84:16)
+#10     Loader._loadMapping (package:yaml/src/loader.dart:165:19)
+#11     Loader._loadNode (package:yaml/src/loader.dart:86:16)
+#12     Loader._loadSequence (package:yaml/src/loader.dart:141:20)
+#13     Loader._loadNode (package:yaml/src/loader.dart:84:16)
+#14     Loader._loadMapping (package:yaml/src/loader.dart:165:19)
+#15     Loader._loadNode (package:yaml/src/loader.dart:86:16)
+#16     Loader._loadMapping (package:yaml/src/loader.dart:165:19)
+#17     Loader._loadNode (package:yaml/src/loader.dart:86:16)
+#18     Loader._loadDocument (package:yaml/src/loader.dart:62:20)
+#19     Loader.load (package:yaml/src/loader.dart:54:20)
+#20     loadYamlDocument (package:yaml/yaml.dart:51:25)
+#21     loadYamlNode (package:yaml/yaml.dart:42:5)
+#22     loadYaml (package:yaml/yaml.dart:34:5)
+#23     FlutterManifest.createFromString (package:flutter_tools/src/flutter_manifest.dart:42:28)
+<asynchronous suspension>
+#24     FlutterManifest.createFromPath (package:flutter_tools/src/flutter_manifest.dart:36:12)
+<asynchronous suspension>
+#25     FlutterProject._readManifest (package:flutter_tools/src/project.dart:128:60)
+<asynchronous suspension>
+#26     FlutterProject.fromDirectory (package:flutter_tools/src/project.dart:42:44)
+<asynchronous suspension>
+#27     FlutterProject.fromPath (package:flutter_tools/src/project.dart:57:58)
+#28     PackagesGetCommand.runCommand (package:flutter_tools/src/commands/packages.dart:83:61)
+<asynchronous suspension>
+#29     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:372:18)
+#30     _asyncThenWrapperHelper.<anonymous closure> (dart:async/runtime/libasync_patch.dart:77:64)
+#31     _rootRunUnary (dart:async/zone.dart:1132:38)
+#32     _CustomZone.runUnary (dart:async/zone.dart:1029:19)
+#33     _FutureListener.handleValue (dart:async/future_impl.dart:129:18)
+#34     Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:642:45)
+#35     Future._propagateToListeners (dart:async/future_impl.dart:671:32)
+#36     Future._complete (dart:async/future_impl.dart:476:7)
+#37     _SyncCompleter.complete (dart:async/future_impl.dart:51:12)
+#38     _AsyncAwaitCompleter.complete.<anonymous closure> (dart:async/runtime/libasync_patch.dart:33:20)
+#39     _rootRun (dart:async/zone.dart:1124:13)
+#40     _CustomZone.run (dart:async/zone.dart:1021:19)
+#41     _CustomZone.bindCallback.<anonymous closure> (dart:async/zone.dart:947:23)
+#42     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#43     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#44     _runPendingImmediateCallback (dart:isolate/runtime/libisolate_patch.dart:115:13)
+#45     _RawReceivePortImpl._handleMessage (dart:isolate/runtime/libisolate_patch.dart:172:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, v0.8.2, on Mac OS X 10.14 18A391, locale en-TH)
+    • Flutter version 0.8.2 at /Users/Anan/development/tools/flutter
+    • Framework revision 5ab9e70727 (4 weeks ago), 2018-09-07 12:33:05 -0700
+    • Engine revision 58a1894a1c
+    • Dart version 2.1.0-dev.3.1.flutter-760a9690c2
+
+[!] Android toolchain - develop for Android devices (Android SDK 28.0.1)
+    • Android SDK at /Users/Anan/Library/Android/sdk
+    • Android NDK at /Users/Anan/Library/Android/sdk/ndk-bundle
+    • Platform android-28, build-tools 28.0.1
+    • ANDROID_HOME = /Users/Anan/Library/Android/sdk
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1136-b06)
+    ! Some Android licenses not accepted.  To resolve this, run: flutter doctor --android-licenses
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 10.0)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 10.0, Build version 10A255
+    • ios-deploy 1.9.2
+    • CocoaPods version 1.5.3
+
+[✓] Android Studio (version 3.2)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin version 28.0.2
+    • Dart plugin version 181.5616
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-1136-b06)
+
+[✓] VS Code (version 1.27.2)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 2.19.0
+
+[✓] Connected devices (1 available)
+    • iPhone 6 • F2198F9E-05ED-44EE-A7AD-13101FE1ABDF • ios • iOS 10.0 (simulator)
+
+! Doctor found issues in 1 category.
+```
