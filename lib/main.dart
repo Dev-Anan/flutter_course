@@ -44,7 +44,8 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
-          accentColor: Colors.deepPurple),
+          accentColor: Colors.deepPurple,
+          buttonColor: Colors.deepPurple),
       //home: AuthPage(),
       routes: {
         '/': (BuildContext context) => AuthPage(),
@@ -64,8 +65,7 @@ class _MyAppState extends State<MyApp> {
                 _products[index]['title'],
                 _products[index]['image'],
                 _products[index]['price'],
-                _products[index]['description']
-                ),
+                _products[index]['description']),
           );
         }
         return null;
