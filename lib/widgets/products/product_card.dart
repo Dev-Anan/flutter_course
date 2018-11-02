@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import './price_tag.dart';
-import '../ui_elements/title_defaulf.dart';
 import './address_tag.dart';
+import '../ui_elements/title_default.dart';
 
 class ProductCard extends StatelessWidget {
   final Map<String, dynamic> product;
@@ -12,20 +12,21 @@ class ProductCard extends StatelessWidget {
 
   Widget _buildTitlePriceRow() {
     return Container(
-        padding: EdgeInsets.only(top: 10.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TitleDefaulf(product['title']),
-            SizedBox(
-              width: 8.0,
-            ),
-            PriceTag(product['price'].toString())
-          ],
-        ));
+      padding: EdgeInsets.only(top: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          TitleDefault(product['title']),
+          SizedBox(
+            width: 8.0,
+          ),
+          PriceTag(product['price'].toString())
+        ],
+      ),
+    );
   }
 
-  Widget _buildAcftionButtons(BuildContext context) {
+  Widget _buildActionButtons(BuildContext context) {
     return ButtonBar(
       alignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -40,7 +41,7 @@ class ProductCard extends StatelessWidget {
           color: Colors.red,
           onPressed: () => Navigator.pushNamed<bool>(
               context, '/product/' + productIndex.toString()),
-        ),
+        )
       ],
     );
   }
@@ -52,10 +53,11 @@ class ProductCard extends StatelessWidget {
         children: <Widget>[
           Image.asset(product['image']),
           _buildTitlePriceRow(),
-          AddressTag(' Siam Paragon, Bangkok'),
-          _buildAcftionButtons(context)
+          AddressTag('Union Square, San Francisco'),
+          _buildActionButtons(context)
         ],
       ),
     );
+    ;
   }
 }

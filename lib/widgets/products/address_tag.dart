@@ -12,8 +12,7 @@ class AddressTag extends StatelessWidget {
       decoration: BoxDecoration(
           border: Border.all(color: Colors.grey, width: 1.0),
           borderRadius: BorderRadius.circular(4.0)),
-      child: Text(address,
-          style: TextStyle(fontFamily: 'Oswald', color: Colors.grey)),
+      child: Text(address),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 // import 'package:flutter/rendering.dart';
+
 import './pages/auth.dart';
 import './pages/products_admin.dart';
 import './pages/products.dart';
@@ -16,7 +16,6 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _MyAppState();
   }
 }
@@ -29,6 +28,12 @@ class _MyAppState extends State<MyApp> {
       _products.add(product);
     });
     print(_products);
+  }
+
+  void _updateProduct(int index, Map<String, dynamic> product) {
+    setState(() {
+      _products[index] = product;
+    });
   }
 
   void _deleteProduct(int index) {
@@ -46,12 +51,12 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.deepOrange,
           accentColor: Colors.deepPurple,
           buttonColor: Colors.deepPurple),
-      //home: AuthPage(),
+      // home: AuthPage(),
       routes: {
         '/': (BuildContext context) => AuthPage(),
         '/products': (BuildContext context) => ProductsPage(_products),
         '/admin': (BuildContext context) =>
-            ProductAdminPage(_addProduct, _deleteProduct),
+            ProductsAdminPage(_addProduct, _updateProduct, _deleteProduct, _products),
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');

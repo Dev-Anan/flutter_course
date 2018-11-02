@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../widgets/ui_elements/title_defaulf.dart';
+
+import '../widgets/ui_elements/title_default.dart';
 
 class ProductPage extends StatelessWidget {
   final String title;
@@ -15,42 +16,44 @@ class ProductPage extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(' Siam Paragon, Bangkok',
-            style: TextStyle(fontFamily: 'Oswald', color: Colors.grey)),
-        SizedBox(
-          width: 10.0,
+        Text(
+          'Union Square, San Francisco',
+          style: TextStyle(fontFamily: 'Oswald', color: Colors.grey),
         ),
         Container(
-            margin: EdgeInsets.symmetric(horizontal: 5.0),
-            child: Text('|',
-                style: TextStyle(fontFamily: 'Oswald', color: Colors.grey))),
-        Text('\$' + price.toString(),
-            style: TextStyle(fontFamily: 'Oswald', color: Colors.grey))
+          margin: EdgeInsets.symmetric(horizontal: 5.0),
+          child: Text(
+            '|',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ),
+        Text(
+          '\$' + price.toString(),
+          style: TextStyle(fontFamily: 'Oswald', color: Colors.grey),
+        )
       ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return WillPopScope(
       onWillPop: () {
-        print('Back button presed!');
+        print('Back button pressed!');
         Navigator.pop(context, false);
         return Future.value(false);
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('EasyList'),
+          title: Text(title),
         ),
         body: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Image.asset(imageUrl),
             Container(
               padding: EdgeInsets.all(10.0),
-              child: TitleDefaulf(title),
+              child: TitleDefault(title),
             ),
             _buildAddressPriceRow(),
             Container(
